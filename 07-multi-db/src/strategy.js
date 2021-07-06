@@ -1,71 +1,74 @@
-class NotImplementedException extends Error{
-    constructor(){
-        super("Not Implemented Exception")
-    }
-}
+// class NotImplementedException extends Error{
+//     constructor(){
+//         super("Not Implemented Exception")
+//     }
+// }
 
-//Como javascript não tem interface
-//Essa classe simulará uma.
-class ICrud{
-    create(item){
-        throw new NotImplementedException()
-    }
+// //Como javascript não tem interface
+// //Essa classe simulará uma.
+// class ICrud{
+//     create(item){
+//         throw new NotImplementedException()
+//     }
 
-    read(query){
-        throw new NotImplementedException()
-    }
+//     read(query){
+//         throw new NotImplementedException()
+//     }
 
-    update(id, item){
-        throw new NotImplementedException()
-    }
+//     update(id, item){
+//         throw new NotImplementedException()
+//     }
 
-    delete(id){
-        throw new NotImplementedException()
-    }
-}
+//     delete(id){
+//         throw new NotImplementedException()
+//     }
+// }
 
-class MongoDB extends ICrud{
-    constructor(){
-        super()
-    }
+// class MongoDB extends ICrud{
+//     constructor(){
+//         super()
+//     }
 
-    create(item){
-        console.log('O item foi salvo em MongoDB')
-    }
-}
+//     create(item){
+//         console.log('O item foi salvo em MongoDB')
+//     }
+// }
 
-class Postgres extends ICrud{
-    constructor(){
-        super()
-    }
+// class Postgres extends ICrud{
+//     constructor(){
+//         super()
+//     }
 
-    create(item){
-        console.log('O item foi salvo em Postgres')
-    }
-}
+//     create(item){
+//         console.log('O item foi salvo em Postgres')
+//     }
+// }
 
-//classe abstrata que chama o método de acordo com o que foi passado no construtor.
-class ContextStrategy{
-    constructor(strategy){
-        this._database = strategy
-    }
+// //classe abstrata que chama o método de acordo com o que foi passado no construtor.
+// class ContextStrategy{
+//     constructor(strategy){
+//         this._database = strategy
+//     }
 
-    create(item){
-        return this._database.create(item)
-    }
+//     create(item){
+//         return this._database.create(item)
+//     }
 
-    read(item){
-        return this._database.read(item)
-    }
+//     read(item){
+//         return this._database.read(item)
+//     }
 
-    update(id, item){
-        return this._database.update(id, item)
-    }
+//     update(id, item){
+//         return this._database.update(id, item)
+//     }
 
-    delete(id){
-        return this._database.delete(id)
-    }
-}
+//     delete(id){
+//         return this._database.delete(id)
+//     }
+// }
 
-const contextMongo = new ContextStrategy(new MongoDB())
-contextMongo.create()
+// const contextMongo = new ContextStrategy(new MongoDB())
+// contextMongo.create()
+
+// const contextPostgres = new ContextStrategy(new Postgres())
+// contextPostgres.create()
